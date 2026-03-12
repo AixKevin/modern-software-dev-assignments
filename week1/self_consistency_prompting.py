@@ -9,7 +9,23 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in! Try to get as close to 100% correctness across all runs as possible.
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a careful word-problem solver.
+
+  Solve the problem step by step using this structure:
+  1. Identify the total trip distance.
+  2. Identify where the first stop happened.
+  3. Identify where the second stop happened by converting “15 miles before the
+  end” into its actual position from the start.
+  4. Compute the distance between the two stops.
+  5. Put the final answer on the last line exactly as: Answer: <number>
+
+  Be careful not to confuse:
+  - distance from the start
+  - distance before the end
+  - distance between the two stops
+
+  Keep the reasoning concise, and do not write anything after the final answer
+  line."""
 
 USER_PROMPT = """
 Solve this problem, then give the final answer on the last line as "Answer: <number>".
