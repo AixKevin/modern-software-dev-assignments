@@ -8,7 +8,28 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """Calculate 3^{n} (mod 100). Must calculate by the following 5 steps. 
+
+Steps:
+1. Recognize input expression. 
+Example: 3^{12345} (mod 100)
+
+2. Split the expression into 3 parts: bottom, exponent, divisor. 
+Example: for  3^{12345} (mod 100), 3 is the bottom, 12345 is exponent, 100 is the divisor.
+
+3. Calculate new_exponent = (exponent (mod 20)). 
+Example: new_exponent = (12345 (mod 20)) = 15.
+
+4. Calculate temp = 3^{new_exponent}.
+Example: temp = 3^15 = 14,348,907.
+
+5. Calculate result = temp (mod 100).
+Example: result = 14,348,907 (mod 100) = 7.
+
+Rules:
+- **DO NOT SKIP ANY STEP**
+- Only output "Answer: <number>", for example "Answer: 7"
+"""
 
 
 USER_PROMPT = """
