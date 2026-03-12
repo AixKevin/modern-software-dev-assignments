@@ -14,8 +14,8 @@ Steps:
 1. Recognize input expression. 
 Example: 3^{12345} (mod 100)
 
-2. Split the expression into 3 parts: bottom, exponent, divisor. 
-Example: for  3^{12345} (mod 100), 3 is the bottom, 12345 is exponent, 100 is the divisor.
+2. Split the expression into 3 parts: base, exponent, divisor. 
+Example: for  3^{12345} (mod 100), 3 is the base, 12345 is exponent, 100 is the divisor.
 
 3. Calculate new_exponent = (exponent (mod 20)). 
 Example: new_exponent = (12345 (mod 20)) = 15.
