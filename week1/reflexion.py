@@ -15,7 +15,12 @@ Keep the implementation minimal.
 """
 
 # TODO: Fill this in!
-YOUR_REFLEXION_PROMPT = ""
+YOUR_REFLEXION_PROMPT = """
+You are coding based on current version, not creating completely new codes. 
+You MUST read error message. 
+You need to fix the error. 
+You MUST keep the output format.
+"""
 
 
 # Ground-truth test suite used to evaluate generated code
@@ -96,7 +101,21 @@ def your_build_reflexion_context(prev_code: str, failures: List[str]) -> str:
 
     Return a string that will be sent as the user content alongside the reflexion system prompt.
     """
-    return ""
+    return f"""
+  You are revising a previous implementation.
+
+  Original code:
+  ```python
+  {prev_code}
+
+  Test failures:
+  {failures}
+
+  Update the function to satisfy all failing test cases while keeping the
+  implementation minimal.
+
+  Return only a single fenced Python code block.
+  """.strip()
 
 
 def apply_reflexion(
